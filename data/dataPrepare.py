@@ -81,5 +81,36 @@ import pandas as pd
     增加字段POI ： Independent ， combine
     统计总共访问的次数，记录为counts
 '''
+df = pd.read_csv("new_CAL_data.csv")
 
+cluster = []
+org_id = {}
+POI_type = []
+index = 0
+for k, v in df.iterrows():
+    if v.Org_id not in org_id:
+        org_id[v.Org_id] = index
+        index += 1
+    if v.POI_Type == 'Independent':
+        POI_type.append(0)
+    else:
+        POI_type.append(1)
 
+for o in df['Org_id']:
+    cluster.append(org_id[o])
+
+df.rename(columns={'POI_id':'Item_id', 'POI_Type' : 'POI'}, inplace=False)
+
+df['cluster'] = cluster
+df['POI_Type'] = POI_type
+
+user = []
+time =[]
+for k, v in df.iterrows():
+    if v.POI_id == 54:
+        user.append(v.User_id)
+        time.append(v.Local_sg_time)
+test54 = pd.DataFrame()
+test54['user'] = user
+test54['time'] = time
+print(test54)
