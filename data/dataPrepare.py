@@ -137,5 +137,15 @@ df.to_csv("new_CAL_data.csv", index=False)
 
 '''
     操作4：
-    获取大类别信息
+    获取Foursquare的类别信息：https://location.foursquare.com/places/docs/venue-categories
+    Arts & Entertainment
+    College & University
+    Event
+    Food
+    Nightlife Spot
+    Outdoors & Recreation
+    Professional & Other Services
+    Residence
+    Shops & Service
+    Travel & Transport
 '''
