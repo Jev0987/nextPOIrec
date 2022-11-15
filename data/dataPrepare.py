@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-
+from getCategory import getCategory
 '''
     操作1：
     找到check-in大于10的用户序列
